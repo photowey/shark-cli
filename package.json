@@ -4,7 +4,8 @@
   "description": "shark cli",
   "main": "index.js",
   "bin": {
-    "shark": "bin/shark.js"
+    "shark": "bin/shark.js",
+    "shark-deploy": "bin/shark-deploy.js"
   },
   "scripts": {
     "test": "shark -v"

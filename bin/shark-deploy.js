@@ -1,25 +1,47 @@
+#!/usr/bin/env node
+
+'use strict';
+
 const program = require('commander');
 const path = require('path');
+const chalk = require('chalk')
 
 const shark = require('../lib/cmds/deploy');
 
+// Define the options with default values.
 program
-    .option('-b, --branch <branch>', 'branch')
-    .option('-e, --env <environment>', 'environment')
-    .option('-m, --machine <machine-room>', 'the target of deploy machine room')
-    .parse(process.argv);
+    .usage(
+        ':: shark deploy -b <branch:trunk> -e <environment:test> -m <machineRoom:zcj>\n' +
+        chalk.red('shark deploy -b trunk -e test -m zcj\n') +
+        chalk.red(' OR\n') +
+        chalk.red('shark deploy == shark deploy -b trunk -e test -m zcj')
+    )
+    .option('-b, --branch <branch>', 'branch', 'trunk')
+    .option('-e, --env <environment>', 'environment', 'test')
+    .option('-m, --machine <machineRoom>', 'the target of deploy machine room', 'zcj');
 
-// 获取 项目地址
-const projectDir = program.args[0]
-    ? path.resolve(process.cwd(), path.normalize(program.args[0]))
-    : process.cwd();
+// Parse argv.
+program.parse(process.argv)
 
-// 获取目标地址 默认:D:\shark-cli-ws (os=win)
-const branch = program.branch || path.normalize('trunk');
-const env = program.env || path.normalize('test');
-const machineRoom = program.dist || path.normalize('zcj');
+// The cmd name
+const cmdName = program.name().replace('-', ' ')
 
-// 构造 deploy() config 参数
-let config = { branch, env, machineRoom, program }
+// Get options.
+const options = program.opts();
 
+// Retrieve single option with default value.
+const branch = options.branch || path.normalize('trunk');
+const env = options.env || path.normalize('test');
+const machineRoom = options.machine || path.normalize('zcj');
+
+const config = {
+    os: process.env.OS,
+    name: cmdName,
+    branch,
+    env,
+    machineRoom,
+    program
+}
+
+// Run deploy()
 shark.deploy(config);
