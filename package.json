@@ -1,0 +1,25 @@
+{
+  "name": "shark-cli",
+  "version": "1.0.0",
+  "description": "shark cli",
+  "main": "index.js",
+  "bin": {
+    "shark": "bin/shark.js"
+  },
+  "scripts": {
+    "test": "shark -v"
+  },
+  "keywords": [
+    "shark",
+    "cli"
+  ],
+  "author": "photowey",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "commander": "^7.2.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^8.0.0",
+    "ora": "^5.4.0"
+  }
+}
