@@ -2,6 +2,10 @@
 
 'use strict';
 
+/**
+ * $ shark deploy cmd handler.
+ */
+
 const program = require('commander');
 const path = require('path');
 const chalk = require('chalk')
@@ -24,7 +28,7 @@ program
 program.parse(process.argv)
 
 // The cmd name
-const cmdName = program.name().replace('-', ' ')
+const cmd = program.name().replace('-', ' ')
 
 // Get options.
 const options = program.opts();
@@ -35,8 +39,7 @@ const env = options.env || path.normalize('test');
 const machineRoom = options.machine || path.normalize('zcj');
 
 const config = {
-    os: process.env.OS,
-    name: cmdName,
+    cmd,
     branch,
     env,
     machineRoom,

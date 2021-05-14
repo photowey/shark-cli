@@ -1,0 +1,3 @@
+/**
+ * $ shark cli bins-utils.
+ */
