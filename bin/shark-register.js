@@ -9,13 +9,17 @@
 const program = require('commander');
 const chalk = require('chalk')
 
+const ensure = require("../lib/cmds/register/ensure");
+ensure.doEnsure()
+
 const shark = require('../lib/cmds/register');
 
 // Define the options with default values.
 program
     .usage(
-        ':: shark register -p <project-code:zcj-contract> -n <project-name:contract> --path <path:d:\\project>\n' +
-        chalk.red('shark register -p zcjcontract -n contract --path d:\\project\n')
+        chalk.red('\n$ shark register:\n') +
+        chalk.green('$ shark register -p <project-code> -n <project-name> --path <path>\n') +
+        chalk.green('$ shark register -p zcjcontract -n contract --path d:\\project\n')
     )
     .requiredOption('-p, --project <project-code>', 'the project code')
     .option('-n, --name <name>', 'the project name')
@@ -25,7 +29,7 @@ program
 program.parse(process.argv)
 
 // The cmd name.
-const cmdName = program.name().replace('-', ' ')
+const cmd = program.name().replace('-', ' ')
 
 // Get options.
 const options = program.opts();
@@ -41,7 +45,7 @@ if (!projectName) {
 }
 
 const config = {
-    name: cmdName,
+    cmd,
     projectCode,
     projectName,
     projectPath,

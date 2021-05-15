@@ -15,10 +15,11 @@ const shark = require('../lib/cmds/deploy');
 // Define the options with default values.
 program
     .usage(
-        ':: shark deploy -b <branch:trunk> -e <environment:test> -m <machineRoom:zcj>\n' +
-        chalk.red('shark deploy -b trunk -e test -m zcj\n') +
-        chalk.red(' OR\n') +
-        chalk.red('shark deploy == shark deploy -b trunk -e test -m zcj')
+        chalk.red('\n$ shark deploy:\n') +
+        chalk.green('$ shark deploy -b <branch> -e <environment> -m <machineRoom>\n') +
+        chalk.green('$ shark deploy -b trunk -e test -m zcj\n') +
+        chalk.green(' OR\n') +
+        chalk.red('$ shark deploy == $ shark deploy -b trunk -e test -m zcj')
     )
     .option('-b, --branch <branch>', 'branch', 'trunk')
     .option('-e, --env <environment>', 'environment', 'test')

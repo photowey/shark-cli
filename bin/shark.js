@@ -17,6 +17,7 @@ program
     .usage('<command> [options]')
     .command('deploy', 'deploy the prgram')
     .command('register', 'register the project directory')
+    .command('create', 'create a backend micro-service project')
 
 // Parse the args.
 program.parse(process.argv)
