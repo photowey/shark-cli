@@ -8,6 +8,7 @@
 
 const program = require('commander');
 const chalk = require('chalk')
+const path = require('path');
 
 const shark = require('../lib/cmds/create');
 
@@ -21,6 +22,7 @@ program
         chalk.green('$ shark create -p zcj-contract -e test -m zcj')
     )
     .option('-p,--project <project>', 'the name of project', 'shark-app')
+    .option('--path <project-path>', 'the path of the was created project')
     .option('-e,--env <environment>', 'the environment when deploy the project', 'test')
     .option('-m,--machine <machineRoom>', 'the machine room when deploy the project, at first', 'zcj')
 
@@ -34,14 +36,19 @@ const cmd = program.name().replace('-', ' ')
 const options = program.opts();
 
 // Retrieve single option with default value.
-let projectName = program.args[0] ? program.args[0] : options.project;
+let project = program.args[0] ? program.args[0] : options.project;
 let env = options.env;
 const machineRoom = options.machine;
+
+const projectPath = options.path;
+
+const projectDir = projectPath ? path.resolve(process.cwd(), path.normalize(projectPath)) : process.cwd();
 
 const config = {
     cmd,
     env,
-    projectName,
+    project,
+    projectDir,
     machineRoom
 }
 
