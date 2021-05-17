@@ -9,7 +9,7 @@ const {
     SHARK_HOME
 } = require('../../lib/utils/constants');
 
-const parent = `${SHARK_HOME}${path.sep}.shark${path.sep}.__shark_project_template_temp_dir`;
+const parent = `${SHARK_HOME}${path.sep}.__shark_project_template_temp_dir`;
 const templateParentDir = `${parent}${path.sep}project-template`;
 
 describe('outputFileSync()', function () {

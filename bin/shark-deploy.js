@@ -21,9 +21,9 @@ program
         chalk.green(' OR\n') +
         chalk.red('$ shark deploy == $ shark deploy -b trunk -e test -m zcj')
     )
-    .option('-b, --branch <branch>', 'branch', 'trunk')
-    .option('-e, --env <environment>', 'environment', 'test')
-    .option('-m, --machine <machineRoom>', 'the target of deploy machine room', 'zcj');
+    .option('-b, --branch <branch>', 'branch')
+    .option('-e, --env <environment>', 'environment')
+    .option('-m, --machine <machineRoom>', 'the target of deploy machine room');
 
 // Parse argv.
 program.parse(process.argv)
@@ -35,9 +35,9 @@ const cmd = program.name().replace('-', ' ')
 const options = program.opts();
 
 // Retrieve single option with default value.
-const branch = options.branch || 'trunk';
-const env = options.env || 'test';
-const machineRoom = options.machine || 'zcj';
+const branch = options.branch;
+const env = options.env;
+const machineRoom = options.machine;
 
 const config = {
     cmd,

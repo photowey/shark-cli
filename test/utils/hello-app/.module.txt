@@ -1,5 +1,0 @@
-hello-app-client
-hello-app-core
-hello-app-provider
-hello-app-repository
-hello-app-service

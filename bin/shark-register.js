@@ -21,9 +21,9 @@ program
         chalk.green('$ shark register -p <project-code> -n <project-name> --path <path>\n') +
         chalk.green('$ shark register -p zcjcontract -n contract --path d:\\project\n')
     )
-    .requiredOption('-p, --project <project-code>', 'the project code')
+    .option('-p, --project <project-code>', 'the project code')
     .option('-n, --name <name>', 'the project name')
-    .requiredOption('--path <path>', 'the directory of the project root');
+    .option('--path <path>', 'the directory of the project root');
 
 // Parse argv.
 program.parse(process.argv)

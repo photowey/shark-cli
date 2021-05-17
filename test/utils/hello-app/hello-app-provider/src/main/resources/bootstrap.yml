@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: @spring.application.name@
-  cloud:
-    config:
-      uri: @spring.cloud.config.uri@
-      profile: @spring.cloud.config.profile@
-      label: @spring.cloud.config.label@
