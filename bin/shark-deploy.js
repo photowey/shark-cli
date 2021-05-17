@@ -35,9 +35,9 @@ const cmd = program.name().replace('-', ' ')
 const options = program.opts();
 
 // Retrieve single option with default value.
-const branch = options.branch || path.normalize('trunk');
-const env = options.env || path.normalize('test');
-const machineRoom = options.machine || path.normalize('zcj');
+const branch = options.branch || 'trunk';
+const env = options.env || 'test';
+const machineRoom = options.machine || 'zcj';
 
 const config = {
     cmd,

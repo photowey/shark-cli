@@ -1,0 +1,11 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+query:
+  database:
+    table:
+      # 统一的数据表前缀
+      table-prefix: t_
+      # 统一的字段前缀
+      # field-prefix: t_

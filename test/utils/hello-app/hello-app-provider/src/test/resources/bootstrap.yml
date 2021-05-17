@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: zcjhelloapp
+  profiles:
+    active: test
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      uri: http://192.168.2.12:8888
+      profile: dev
+      label: trunk
+
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      uri: http://192.168.2.12:8888
+      profile: 12
+      label: test

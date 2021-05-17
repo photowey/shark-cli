@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.gmsoft</groupId>
+        <artifactId>basic</artifactId>
+        <version>2.1.2</version>
+    </parent>
+
+    <groupId>com.zcj</groupId>
+    <artifactId>hello-app</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>hello-app</name>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
+
+        <fasjson.version>1.2.73</fasjson.version>
+        <maven.compiler.version>3.8.0</maven.compiler.version>
+        <photowey-core.version>1.2.1</photowey-core.version>
+        <gec-org.version>1.14.10</gec-org.version>
+        <annotation.version>1.0.1</annotation.version>
+        <query-starter.version>1.4.6</query-starter.version>
+        <auth.version>1.1.2</auth.version>
+        <check-login-starter.version>1.0.0</check-login-starter.version>
+        <model-mapper-starter.version>1.0.0</model-mapper-starter.version>
+        <property-parser.version>1.0.0</property-parser.version>
+        <swagger-ext.version>1.0.0</swagger-ext.version>
+        <!-- mysql 5.5 -->
+        <mysql.version>5.1.48</mysql.version>
+
+        <servlet-api.version>3.1.0</servlet-api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fasjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zcj</groupId>
+                <artifactId>hello-app-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zcj</groupId>
+                <artifactId>hello-app-repository</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zcj</groupId>
+                <artifactId>hello-app-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.photowey</groupId>
+                <artifactId>photowey-core</artifactId>
+                <version>${photowey-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gec</groupId>
+                <artifactId>gec-org-core</artifactId>
+                <version>${gec-org.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gec</groupId>
+                <artifactId>gec-org-client</artifactId>
+                <version>${gec-org.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>generator-spring-boot-annotation</artifactId>
+                <version>${annotation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>query-spring-boot-starter</artifactId>
+                <version>${query-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>query-spring-boot-autoconfigure</artifactId>
+                <version>${query-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>query-spring-boot</artifactId>
+                <version>${query-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>gmsoft-authen-mock</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gmsoft</groupId>
+                <artifactId>gmsoft-authen-client</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.djc</groupId>
+                <artifactId>model-mapper-spring-boot-starter</artifactId>
+                <version>${model-mapper-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.djc</groupId>
+                <artifactId>djc-check-login-starter-ext</artifactId>
+                <version>${check-login-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zcj</groupId>
+                <artifactId>zcj-property-parser</artifactId>
+                <version>${property-parser.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.djc</groupId>
+                <artifactId>djc-swagger-ext-starter</artifactId>
+                <version>${swagger-ext.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>release-deploy</id>
+            <url>${nexus.release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-deploy</id>
+            <url>${nexus.snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <modules>
+        <module>hello-app-core</module>
+        <module>hello-app-client</module>
+        <module>hello-app-provider</module>
+        <module>hello-app-repository</module>
+        <module>hello-app-service</module>
+    </modules>
+
+</project>

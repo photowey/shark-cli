@@ -4,10 +4,11 @@
   "description": "shark cli",
   "main": "index.js",
   "bin": {
+    "shk": "bin/shark.js",
     "shark": "bin/shark.js",
+    "shark-create": "bin/shark-create.js",
     "shark-deploy": "bin/shark-deploy.js",
-    "shark-register": "bin/shark-register.js",
-    "shark-create": "bin/shark-create.js"
+    "shark-register": "bin/shark-register.js"
   },
   "scripts": {
     "test": "shark -v"

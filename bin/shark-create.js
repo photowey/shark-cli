@@ -37,9 +37,9 @@ const options = program.opts();
 
 // Retrieve single option with default value.
 let project = program.args[0] ? program.args[0] : options.project;
+
 let env = options.env;
 const machineRoom = options.machine;
-
 const projectPath = options.path;
 
 const projectDir = projectPath ? path.resolve(process.cwd(), path.normalize(projectPath)) : process.cwd();

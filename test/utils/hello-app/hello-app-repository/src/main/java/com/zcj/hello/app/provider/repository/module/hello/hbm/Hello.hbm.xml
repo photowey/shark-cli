@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- photowey -->
+<!-- 2021/03/15 -->
+<!-- 1.0.0 -->
+<hibernate-mapping>
+    <class name="com.zcj.hello.app.core.domain.module.hello.entity.Hello"
+           table="hello" catalog="hello">
+        <!-- 标识 -->
+        <id name="id" type="java.lang.Long">
+            <column name="Id"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="java.lang.Long" column="ItemId"/>
+        <!-- 创建时间 -->
+        <property name="createTime" type="java.util.Date" column="CreateTime"/>
+        <!-- 更新时间 -->
+        <property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+    </class>
+</hibernate-mapping>

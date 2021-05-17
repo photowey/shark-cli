@@ -5,26 +5,29 @@ const replacer = require('../../lib/utils/replace.variables');
 
 const packageJson = require('./packageInfo');
 
-const parent = `C:${path.sep}Users${path.sep}Administrator${path.sep}.shark${path.sep}.__shark_project_template_temp_dir`
-const templateParentDir = `${parent}${path.sep}project-template`
+const {
+    SHARK_HOME
+} = require('../../lib/utils/constants');
 
-describe('#outputFileSync()', function () {
+const parent = `${SHARK_HOME}${path.sep}.shark${path.sep}.__shark_project_template_temp_dir`;
+const templateParentDir = `${parent}${path.sep}project-template`;
+
+describe('outputFileSync()', function () {
     doCreate(templateParentDir)
 });
 
 
 async function doCreate(templateParentDir) {
-
-    let promise = fileDisplay(templateParentDir)
+    let promise = recursiveSearchSync(templateParentDir)
     promise.then((files) => {
         console.dir(files)
-        console.log('-------------------------resolve' + files)
+        console.log('-------------------------resolve:' + files)
     }).catch((error) => {
-        console.log('-------------------------reject' + error)
+        console.log('-------------------------reject:' + error)
     });
 }
 
-function fileDisplay(filePath) {
+function recursiveSearchSync(filePath) {
     let projectdir = `${packageJson['projectDir']}${path.sep}${packageJson['project']}`
     return new Promise((resolve, reject) => {
 
@@ -53,7 +56,7 @@ function fileDisplay(filePath) {
                                 console.log(`create the file:${fileName} successfully...`)
                             }
                             if (isDir) {
-                                fileDisplay(filedir);
+                                recursiveSearchSync(filedir);
                             }
                         }
                     })
