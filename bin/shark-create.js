@@ -22,9 +22,9 @@ program
         chalk.green('$ shark create -p zcj-contract -e test -m zcj')
     )
     .option('-p,--project <project>', 'the name of project', 'shark-app')
-    .option('--path <project-path>', 'the path of the was created project')
-    .option('-e,--env <environment>', 'the environment when deploy the project', 'test')
-    .option('-m,--machine <machineRoom>', 'the machine room when deploy the project, at first', 'zcj')
+    .option('--path <project-path>', 'the path of the will be created project')
+    .option('-e,--env <environment>', 'the environment when deploy the project')
+    .option('-m,--machine <machineRoom>', 'the machine room when deploy the project, at first')
 
 // Parse argv.
 program.parse(process.argv)
