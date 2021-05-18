@@ -10,6 +10,9 @@ const program = require('commander');
 const fs = require('fs-extra');
 
 const packageJson = require('../package.json');
+const {
+    logger
+} = require('../lib/logger');
 
 const {
     SHARK_HOME,
@@ -38,8 +41,10 @@ program
     .command('register', 'register the project directory')
     .command('create', 'create a backend micro-service project')
 
+// Test logger debug?
+logger.init(program)
+
 // Parse the args.
-// Run create()
 program.parse(process.argv);
 
 // =====================================================

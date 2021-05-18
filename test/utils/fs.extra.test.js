@@ -35,24 +35,24 @@ const {
 // });
 
 
-describe('#loadSharkDB()', function () {
-    let db = loadSharkDB()
-    console.dir(db)
-    // Do asking.
-    if (true) {
-        // var projects = (projects) => Array.prototype.slice.call(projects);
-        var projects = Array.prototype.slice.call(db['projects']);
-        console.dir(projects)
+// describe('#loadSharkDB()', function () {
+//     let db = loadSharkDB()
+//     console.dir(db)
+//     // Do asking.
+//     if (true) {
+//         // var projects = (projects) => Array.prototype.slice.call(projects);
+//         var projects = Array.prototype.slice.call(db['projects']);
+//         console.dir(projects)
 
-        projects.forEach((project) => {
+//         projects.forEach((project) => {
 
-            console.log(project)
+//             console.log(project)
 
-            if (project['code'] === 'zcj-contract') {
-                let projectDir = path.normalize(project['path'])
-                console.log(projectDir)
-            }
-        })
+//             if (project['code'] === 'zcj-contract') {
+//                 let projectDir = path.normalize(project['path'])
+//                 console.log(projectDir)
+//             }
+//         })
 
-    }
-});
+//     }
+// });

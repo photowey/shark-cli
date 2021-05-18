@@ -61,3 +61,6 @@ typings/
 .next
 
 .vscode
+
+svn.json
+/test/utils/packageInfo.json

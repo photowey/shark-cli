@@ -1,19 +1,17 @@
-# Shark cli
-```text
-$ shark cli is a command line tool designed for back-end development and deployment
-```
+# `Shark cli`
 
-## $ shark create
-```text
-$ shark create <project-name>
-```
+## install
+`yarn global add shark-cli`
 
-## $ shark deploy
-```text
-$ shark deploy -b <branch> -e <environment> -m <machineRoom>
-```
+>  If the command  $shark not found.
+>
+> 1. Use `$ yarn global bin` show path.
+> 2. Add to `$path`.
 
-## $ shark register
-```text
-$ shark register -p <project-code> -n <project-name> --path <path>
-```
+## commands
+`options:`
+
+- [create](./doc/shark-create.md) Create a `SpringBoot` project.
+- [deploy](./doc/shark-deploy.md) Deploy the code of the specified branch to the specified environment of the target machine-room.
+- [register](./doc/shark-register.md) Register  project info in local db.
+
