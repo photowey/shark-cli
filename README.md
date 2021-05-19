@@ -1,9 +1,13 @@
 # `Shark cli`
+> $ shark  
+> The alisa:  
+> $ shk  
 
+[中文教程](./README_CN.md)
 ## install
 `yarn global add shark-cli`
 
->  If the command  $shark not found.
+>  If the command  `$ yarn` not found.
 >
 > 1. Use `$ yarn global bin` show path.
 > 2. Add to `$path`.
@@ -17,7 +21,7 @@
 
 
 ## 1.0.0
-> change log
+> release log
 * $ shark create
 * $ shark deploy
 * $ shark registerss
