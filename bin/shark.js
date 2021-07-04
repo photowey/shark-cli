@@ -19,7 +19,8 @@ const {
     SHARK_DB,
     BRANCHES,
     EVNS,
-    MACHINES
+    MACHINES,
+    PRODUCT_CODES
 } = require('../lib/utils/constants');
 
 const {
@@ -40,6 +41,7 @@ program
     .command('deploy', 'deploy the prgram')
     .command('register', 'register the project directory')
     .command('create', 'create a backend micro-service project')
+    .command('generator', 'a code generator for database reverse engineering')
 
 // Test logger debug?
 logger.init(program)
@@ -67,6 +69,7 @@ function ensureSharkDB() {
         db['branches'] = BRANCHES
         db['evns'] = EVNS
         db['machines'] = MACHINES
+        db['codes'] = PRODUCT_CODES
         fs.outputFileSync(SHARK_DB, JSON.stringify(db, "", 4))
     }
 }
